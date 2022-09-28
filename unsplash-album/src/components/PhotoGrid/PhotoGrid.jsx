@@ -4,9 +4,8 @@ import PhotoItem from "../PhotoItem/PhotoItem";
 import { usePhotosQuery } from "../../hooks";
 
 
-const handleClick = (event) => {
-  if (event.key === "Enter") {
-  }
+const handleClick = () => {
+
 };
 
 const PhotoGrid = memo(() => {
@@ -14,7 +13,7 @@ const PhotoGrid = memo(() => {
   return (
     <div className={classes.photoGrid}>
       {data && data.map(
-        el => <PhotoItem key={el.id} image={el.urls.small_s3} title={el?.sponsorship?.tagline || ''} author={el.user.name} onClick={handleClick} />
+        el => <PhotoItem key={el.id} image={el.urls.regular} title={el?.sponsorship?.tagline || ''} author={el.user.name} onClick={handleClick} />
       )}
     </div>
   );
