@@ -11,10 +11,6 @@
     transform: scale(1);
 }
 
-.overlayHidden {
-    transform: scale(0);
-}
-
 .overlay .container {
     margin: 20px;
     padding: 5px;
@@ -35,17 +31,22 @@
 .container>span {
     cursor: pointer;
     z-index: 10;
+    top: 6px;
+    right: 8px;
+    position: absolute;
+    width: 24px;
+    height: 24px;
 }
 
 .container>span::before,
 .container>span::after {
-    top: 15px;
-    right: 5px;
     content: "";
-    position: absolute;
     width: 24px;
     height: 4px;
     background: white;
+    position: absolute;
+    top: 12px;
+    left: 0;
 }
 
 .container>span::before {

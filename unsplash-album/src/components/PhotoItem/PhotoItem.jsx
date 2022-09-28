@@ -1,9 +1,12 @@
 import React from "react";
 import classes from "./styles.module.css";
 
-const PhotoItem = ({ image, title, author, active, setActive }) => {
+const PhotoItem = ({ image, title, author, onClick }) => {
+  const handleClick = () => {
+    onClick(image);
+  };
   return (
-    <div className={classes.photoItem} onClick={() => setActive(true)}>
+    <div className={classes.photoItem} onClick={handleClick}>
       <div className={classes.photoWarapper}>
         <img
           className={classes.photoImage}

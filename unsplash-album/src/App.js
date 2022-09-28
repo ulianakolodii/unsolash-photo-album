@@ -1,28 +1,27 @@
 import React, { useState } from "react";
 import PhotoGrid from "./components/PhotoGrid/PhotoGrid";
 import Modal from "./components/Modal/Modal";
+import { usePhotosQuery } from "./hooks";
 
 import classes from "../src/App.css";
 
 function App() {
-  const [modalHidden, setModalHidden] = useState(false);
+  const [image, setImage] = useState("");
   const handleClickHide = () => {
-    setModalHidden(true);
+    setImage("");
   };
+
+  const items = usePhotosQuery();
 
   return (
     <div className="App">
-      <PhotoGrid></PhotoGrid>
-      <Modal hidden={modalHidden} setHidden={setModalHidden}>
-        <span onClick={handleClickHide}></span>
-        <img
-          className={classes.largePhoto}
-          src={
-            "https://images.pexels.com/videos/4772983/pexels-photo-4772983.jpeg"
-          }
-          alt={"broken"}
-        />
-      </Modal>
+      <PhotoGrid onOpenImage={setImage} items={items} />
+      {image && (
+        <Modal>
+          <span onClick={handleClickHide}></span>
+          <img className={classes.largePhoto} src={image} alt="ModalImage" />
+        </Modal>
+      )}
     </div>
   );
 }
