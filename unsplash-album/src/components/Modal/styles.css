@@ -8,6 +8,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transform: scale(1);
+}
+
+.overlayHidden {
+    transform: scale(0);
 }
 
 .overlay .container {

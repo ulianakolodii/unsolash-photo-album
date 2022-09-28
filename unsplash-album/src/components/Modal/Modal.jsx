@@ -1,14 +1,15 @@
 import React from "react";
-import classes from "./styles.module.css";
+import "./styles.css";
 
-const Modal = ({ children }) => {
-    return (
-        <div className={classes.overlay}>
-            <div className={classes.container}>
-                {children}
-            </div>
-        </div>
-    );
-  };
-  
-  export default Modal;
+const ImageModal = ({ hidden, setHidden, children }) => {
+  return (
+    <div
+      className={hidden ? "overlayHidden" : "overlay"}
+      onClick={() => setHidden(true)}
+    >
+      <div className="container">{children}</div>
+    </div>
+  );
+};
+
+export default ImageModal;
