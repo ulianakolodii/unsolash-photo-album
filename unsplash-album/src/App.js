@@ -22,7 +22,7 @@ function App() {
           <img className={classes.largePhoto} src={image} alt="ModalImage" />
         </Modal>
       )}
-    </div>
+    </div>git
   );
 }
 
